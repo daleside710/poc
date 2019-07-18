@@ -1,0 +1,51 @@
+@charset "UTF-8";
+/*
+  Front-End User Customization CSS
+ */
+
+/*
+  Font Size
+ */
+.fs-8px {
+  font-size: 8px !important;
+}
+.fs-9px {
+  font-size: 9px !important;
+}
+.fs-10px {
+  font-size: 10px !important;
+}
+.fs-11px {
+  font-size: 11px !important;
+}
+.fs-12px {
+  font-size: 12px !important;
+}
+.fs-14px {
+  font-size: 14px !important;
+}
+.fs-16px {
+  font-size: 16px !important;
+}
+.fs-18px {
+  font-size: 18px !important;
+}
+.fs-20px {
+  font-size: 20px !important;
+}
+
+
+
+/*
+  Line Height
+ */
+.lh-40px {
+  line-height: 40px !important;
+}
+
+/*
+  Border Radius
+ */
+.bdr-rd-25p-rem {
+  border-radius: .25rem !important;
+}
