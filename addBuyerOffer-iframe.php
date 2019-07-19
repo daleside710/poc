@@ -35,7 +35,7 @@ $data = array(
     'buyer_offer_price' => '8200', // This will be replaced with 9% discouted price from listing price
     'buyer_negotiation_mode' => 'auto',
     'buyer_highest_offer_price' => '8300',// This will be replaced with 12% discounted price from listing price
-    'upc_product_code' => 'URL', // Replace with original URL  - Will be same as it was used while uploading that URL
+    'upc_product_code' => isset($_POST['url']) ? $_POST['url'] : "",
     'buyer_currency' => 'USD',
     'buyer_zip' => '94024'
 );

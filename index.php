@@ -1,10 +1,11 @@
 <?php
-    $products = array(
-        "https://www.zillow.com/homes/for_sale/Thousand-Oaks-CA/66107878_zpid/34278_rid/globalrelevanceex_sort/34.315225,-118.73148,34.08181,-119.051457_rect/11_zm",
-        "https://www.jbLcom/noise-cancelling-headphones/JBL+LIVE650BTNC.html?cgid=noise-cancelling-headphones&dwvar_JBL%20LIVE650BTNC_color=Black-USA-Current#start=1",
-        "https://www.cars.com/vehicledetail/detail/776356359/overview",
-        "https://www.carfax.com/vehicle/4A32B3FF6CE013372"
+    $urls = array(
+        "https://symfony.com/",
+        "https://laravel.com/",
+        "https://angular.io/",
+        "https://www.salesforceben.com/"
     );
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,30 +26,72 @@
         <div class="col-12">
             <p>On our consolidated web page - We will have their HTML links for the product.</p>
             <p>We will display our product catalog like:</p>
-            <p>1. Gorgeous House in Thousand Oaks - See Details</p>
-            <p>2. JBL Bluetooth Headphone - See Details</p>
-            <p>3. Ford-F-150 Truck (White) for Sale - See Details</p>
-            <p>4. White Mitsubishi Galant Car - See Details</p>
+        </div>
+        <div class="col-12 mb-3">
+            <form action="index.php" method="POST">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">URL 1:</span>
+                    </div>
+                    <input type="text" name="url1" class="form-control" value="<?php echo isset($_POST['url1']) ? $_POST['url1'] : $urls[0]; ?>">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">URL 2:</span>
+                    </div>
+                    <input type="text" name="url2" class="form-control" value="<?php echo isset($_POST['url2']) ? $_POST['url2'] : $urls[1]; ?>">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">URL 3:</span>
+                    </div>
+                    <input type="text" name="url3" class="form-control" value="<?php echo isset($_POST['url3']) ? $_POST['url3'] : $urls[2]; ?>">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">URL 4:</span>
+                    </div>
+                    <input type="text" name="url4" class="form-control" value='<?php echo isset($_POST['url4']) ? $_POST['url4'] : $urls[3]; ?>'>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <iframe name="ifrm_result" style="display: none;"></iframe>
         </div>
     </div>
 
-    <?php
-        for( $i = 0; $i < count( $products ); $i ++ ){
-            if( $i % 2 == 0 )
-                echo '<div class="row mb-3">';
+    <div class="row mb-3">
+        <div class="col-md-6 col-12">
+            <a href="javascript:void(0)" onclick="onClickIFrame('<?php echo isset($_POST['url1']) ? $_POST['url1'] : $urls[0]; ?>')">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe allowfullscreen class="embed-responsive-item" src='<?php echo isset($_POST['url1']) ? $_POST['url1'] : $urls[0]; ?>' style="pointer-events: none;"></iframe>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6 col-12">
+            <a href="javascript:void(0)" onclick="onClickIFrame('<?php echo isset($_POST['url2']) ? $_POST['url2'] : $urls[1]; ?>')">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe allowfullscreen class="embed-responsive-item" src='<?php echo isset($_POST['url2']) ? $_POST['url2'] : $urls[1]; ?>' style="pointer-events: none;"></iframe>
+                </div>
+            </a>
+        </div>
+    </div>
 
-            echo    '<div class="col-md-6 col-12">' .
-                        '<a href="javascript:void(0)" onclick="onClickIFrame( \'' . $products[$i] . '\' )">' .
-                            '<div class="embed-responsive embed-responsive-16by9">' .
-                                '<iframe class="embed-responsive-item" src="' . $products[$i] . '" style="pointer-events: none;"></iframe>'.
-                            '</div>'.
-                        '</a>'.
-                    '</div>';
-
-            if( $i % 2 == 1 )
-                echo '</div>';
-        }
-    ?>
+    <div class="row mb-3">
+        <div class="col-md-6 col-12">
+            <a href="javascript:void(0)" onclick="onClickIFrame('<?php echo isset($_POST['url3']) ? $_POST['url3'] : $urls[2]; ?>')">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe allowfullscreen class="embed-responsive-item" src='<?php echo isset($_POST['url3']) ? $_POST['url3'] : $urls[2]; ?>' style="pointer-events: none;"></iframe>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6 col-12">
+            <a href="javascript:void(0)" onclick="onClickIFrame('<?php echo isset($_POST['url4']) ? $_POST['url4'] : $urls[3]; ?>')">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe allowfullscreen class="embed-responsive-item" src='<?php echo isset($_POST['url4']) ? $_POST['url4'] : $urls[3]; ?>' style="pointer-events: none;"></iframe>
+                </div>
+            </a>
+        </div>
+    </div>
 </div>
 
 </body>
